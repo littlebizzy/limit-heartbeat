@@ -7,7 +7,7 @@
  */
 
 // Subpackage namespace
-namespace LittleBizzy\PluginNamespace\Notices;
+namespace LittleBizzy\LimitHeartbeat\Notices;
 
 /**
  * Admin Notices MultiSite class

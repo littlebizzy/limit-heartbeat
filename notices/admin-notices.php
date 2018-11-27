@@ -7,10 +7,10 @@
  */
 
 // Subpackage namespace
-namespace LittleBizzy\PluginNamespace\Notices;
+namespace LittleBizzy\LimitHeartbeat\Notices;
 
 // Aliased namespaces
-use LittleBizzy\PluginNamespace as PluginRoot;
+use LittleBizzy\LimitHeartbeat as PluginRoot;
 
 /**
  * Admin Notices class

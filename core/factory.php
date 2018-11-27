@@ -1,15 +1,15 @@
 <?php
 
 // Subpackage namespace
-namespace LittleBizzy\PluginNamespace\Core;
+namespace LittleBizzy\LimitHeartbeat\Core;
 
 // Aliased namespaces
-use \LittleBizzy\PluginNamespace\Helpers;
+use \LittleBizzy\LimitHeartbeat\Helpers;
 
 /**
  * Object Factory class
  *
- * @package WordPress Plugin
+ * @package Limit Heartbeat
  * @subpackage Core
  */
 class Factory extends Helpers\Factory {
