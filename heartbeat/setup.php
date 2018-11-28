@@ -17,7 +17,7 @@ class Setup {
 	 * Constructor
 	 */
 	public function __construct() {
-
+		error_log('Setup!');
 	}
 
 

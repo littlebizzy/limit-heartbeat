@@ -41,7 +41,7 @@ final class Core extends Helpers\Singleton {
 			// Disable heartbeat attempt
 			if (!$factory->disabler->disabled()) {
 
-				// Configure it
+				// Well, try to configure it
 				$factory->setup();
 			}
 		}
