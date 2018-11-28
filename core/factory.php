@@ -18,10 +18,19 @@ class Factory extends Helpers\Factory {
 
 
 	/**
-	 * An object instance
+	 * Disabler object instance
 	 */
 	protected function createDisabler() {
 		return new Heartbeat\Disabler(new Helpers\Context);
+	}
+
+
+
+	/**
+	 * Setup object instance
+	 */
+	protected function createSetup() {
+		return new Heartbeat\Setup;
 	}
 
 

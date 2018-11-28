@@ -6,7 +6,7 @@ namespace LittleBizzy\LimitHeartbeat\Heartbeat;
 /**
  * Disabler class
  *
- * @package Heartbear
+ * @package Heartbeat
  * @subpackage Limit Heartbeat
  */
 class Disabler {

@@ -38,12 +38,11 @@ final class Core extends Helpers\Singleton {
 			// Factory object
 			$factory = new Factory($this->plugin);
 
-			// Create a disabler object
+			// Disable heartbeat attempt
 			if (!$factory->disabler->disabled()) {
-				error_log('enabled');
-				//$factory->setup();
-			} else {
-				error_log('disabled');
+
+				// Configure it
+				$factory->setup();
 			}
 		}
 	}
