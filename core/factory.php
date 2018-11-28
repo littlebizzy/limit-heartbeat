@@ -5,6 +5,7 @@ namespace LittleBizzy\LimitHeartbeat\Core;
 
 // Aliased namespaces
 use \LittleBizzy\LimitHeartbeat\Helpers;
+use \LittleBizzy\LimitHeartbeat\Heartbeat;
 
 /**
  * Object Factory class
@@ -17,28 +18,10 @@ class Factory extends Helpers\Factory {
 
 
 	/**
-	 * A core object
+	 * An object instance
 	 */
-	protected function createCoreObject() {
-		return new MyCoreObject;
-	}
-
-
-
-	/**
-	 * A singleton object instance
-	 */
-	protected function createOtherObject() {
-		return Subdirectory\TheClassName::instance($this->plugin);
-	}
-
-
-
-	/**
-	 * Create new object
-	 */
-	protected function createNewObject($args) {
-		return new Subdirectory\TheClassName($args);
+	protected function createDisabler() {
+		return new Heartbeat\Disabler(new Helpers\Context);
 	}
 
 

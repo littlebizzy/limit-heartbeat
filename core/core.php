@@ -21,11 +21,31 @@ final class Core extends Helpers\Singleton {
 	 */
 	protected function onConstruct() {
 
-		// Factory object
-		//$this->plugin->factory = new Factory($this->plugin);
+		// WP init hook
+		add_action('wp_print_scripts', [$this, 'scripts'], PHP_INT_MAX);
+	}
 
-		// Attempt to run an object
-		//$this->plugin->factory->myObject()
+
+
+	/**
+	 * Handle WP init hook
+	 */
+	public function scripts() {
+
+		// Check enqueued script
+		if (wp_script_is('heartbeat')) {
+
+			// Factory object
+			$factory = new Factory($this->plugin);
+
+			// Create a disabler object
+			if (!$factory->disabler->disabled()) {
+				error_log('enabled');
+				//$factory->setup();
+			} else {
+				error_log('disabled');
+			}
+		}
 	}
 
 
