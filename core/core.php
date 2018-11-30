@@ -21,6 +21,12 @@ final class Core extends Helpers\Singleton {
 	 */
 	protected function onConstruct() {
 
+		// Factory object
+		$this->plugin->factory = new Factory($this->plugin);
+
+		// Heartbeat setup by context
+		$this->plugin->factory->setup();
+
 		// WP init hook
 		add_action('wp_print_scripts', [$this, 'scripts'], PHP_INT_MAX);
 	}
@@ -35,15 +41,8 @@ final class Core extends Helpers\Singleton {
 		// Check enqueued script
 		if (wp_script_is('heartbeat')) {
 
-			// Factory object
-			$factory = new Factory($this->plugin);
-
-			// Disable heartbeat attempt
-			if (!$factory->disabler->disabled()) {
-
-				// Well, try to configure it
-				$factory->setup();
-			}
+			// Disable heartbeat attempts by context
+			$this->plugin->factory->disabler();
 		}
 	}
 

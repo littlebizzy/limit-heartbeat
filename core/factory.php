@@ -21,7 +21,7 @@ class Factory extends Helpers\Factory {
 	 * Disabler object instance
 	 */
 	protected function createDisabler() {
-		return new Heartbeat\Disabler(new Helpers\Context);
+		return new Heartbeat\Disabler($this->context());
 	}
 
 
@@ -30,7 +30,7 @@ class Factory extends Helpers\Factory {
 	 * Setup object instance
 	 */
 	protected function createSetup() {
-		return new Heartbeat\Setup;
+		return new Heartbeat\Setup($this->context());
 	}
 
 
