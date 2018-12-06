@@ -87,7 +87,7 @@ class Setup {
 
 					// Disable classic editor issue
 					$this->interval = $interval;
-					add_action('wp_print_scripts', [$this, 'inline'], PHP_INT_MAX);
+					add_action('admin_enqueue_scripts', [$this, 'inline'], PHP_INT_MAX);
 				}
 			}
 		}
@@ -137,7 +137,7 @@ class Setup {
 		$script = 'if (jQuery) {
 			jQuery(document).ready(function($) {
 				if (wp.heartbeat && $("#post-lock-dialog").length) {
-					wp.heartbeat.interval('.esc_html($this->interval).');
+					wp.heartbeat.interval('.esc_attr($this->interval).');
 				}
 			});
 		}';
