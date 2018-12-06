@@ -121,8 +121,9 @@ class Context {
 
 
 	/**
-	 * Determines current editor
-	 * This method must be called after WP Print Scripts hook
+	 * Determines if Gutenberg is the current editor
+	 * This method should be called using the admin_enqueue_scripts hook:
+	 * https://wordpress.stackexchange.com/questions/309862/check-if-gutenberg-is-currently-in-use
 	 */
 	public function gutenberg() {
 
@@ -132,11 +133,11 @@ class Context {
 		}
 
 		// Gutenberg by version (>= 5.0)
-		if (function_exists('use_block_editor_for_post') && use_block_editor_for_post(null)) {
+		if (function_exists('is_gutenberg_page') && is_gutenberg_page()) {
 			return true;
 		}
 
-		// No gutenber
+		// No Gutenberg
 		return false;
 	}
 
