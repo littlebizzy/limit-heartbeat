@@ -21,6 +21,13 @@ class Setup {
 
 
 	/**
+	 * Interval value for inline script
+	 */
+	private $interval;
+
+
+
+	/**
 	 * Default new interval values
 	 */
 	const EDITOR = 30;
@@ -77,6 +84,10 @@ class Setup {
 
 					// Check admin editor interval constant OR default value
 					$interval = defined('LIMIT_HEARTBEAT_INTERVAL_EDITOR')? (int) LIMIT_HEARTBEAT_INTERVAL_EDITOR : self::EDITOR;
+
+					// Disable classic editor issue
+					$this->interval = $interval;
+					add_action('wp_print_scripts', [$this, 'inline'], PHP_INT_MAX);
 				}
 			}
 		}
@@ -108,6 +119,31 @@ class Setup {
 
 		// Done
 		return $settings;
+	}
+
+
+
+	/**
+	 * Inline script for non Gutenberg context
+	 */
+	public function inline() {
+
+		// Check Gutenberg
+		if ($this->context->gutenberg()) {
+			return;
+		}
+
+		// Prepare script
+		$script = 'if (jQuery) {
+			jQuery(document).ready(function($) {
+				if (wp.heartbeat && $("#post-lock-dialog").length) {
+					wp.heartbeat.interval('.esc_html($this->interval).');
+				}
+			});
+		}';
+
+		// Add script
+		wp_add_inline_script('post', $script, 'after');
 	}
 
 

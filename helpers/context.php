@@ -120,4 +120,26 @@ class Context {
 
 
 
+	/**
+	 * Determines current editor
+	 * This method must be called after WP Print Scripts hook
+	 */
+	public function gutenberg() {
+
+		// Gutenberg by plugin
+		if (has_filter('replace_editor', 'gutenberg_init')) {
+			return true;
+		}
+
+		// Gutenberg by version (>= 5.0)
+		if (function_exists('use_block_editor_for_post') && use_block_editor_for_post(null)) {
+			return true;
+		}
+
+		// No gutenber
+		return false;
+	}
+
+
+
 }
