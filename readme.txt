@@ -1,63 +1,60 @@
-=== Plugin Name ===
+=== Limit Heartbeat ===
 
 Contributors: littlebizzy
 Donate link: https://www.patreon.com/littlebizzy
-Tags: five, keywords, separated, by, commas
+Tags: limit, disable, control, heartbeat, api
 Requires at least: 4.4
-Tested up to: 4.9
+Tested up to: 5.0
 Requires PHP: 7.2
 Multisite support: No
-Stable tag: 1.2.3
+Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: plugin-name-littlebizzy
-Domain Path: /lang
-Prefix: ABCXYZ
+Prefix: LMTHRT
 
-Description of the plugin goes here, limited to 150 characters or less and should be a single well-written sentence that includes some of your most important keywords.
+Limits the Heartbeat API in WordPress to certain areas of the site (and a longer pulse interval) to reduce AJAX queries and improve resource usage.
 
 == Description ==
 
-Description of the plugin goes here, limited to 150 characters or less and should be a single well-written sentence that includes some of your most important keywords.
+Limits the Heartbeat API in WordPress to certain areas of the site (and a longer pulse interval) to reduce AJAX queries and improve resource usage.
 
 * [**Join our FREE Facebook group for support**](https://www.facebook.com/groups/littlebizzy/)
-* [**Worth a 5-star review? Thank you!**](https://wordpress.org/support/plugin/example-littlebizzy/reviews/?rate=5#new-post)
-* [Plugin Homepage](https://www.littlebizzy.com/plugins/disable-emojis)
-* [Plugin GitHub](https://github.com/littlebizzy/disable-emojis)
-* [SlickStack](https://slickstack.io)
+* [**Worth a 5-star review? Thank you!**](https://wordpress.org/support/plugin/limit-heartbeat-littlebizzy/reviews/?rate=5#new-post)
+* [Plugin Homepage](https://www.littlebizzy.com/plugins/limit-heartbeat)
+* [Plugin GitHub](https://github.com/littlebizzy/limit-heartbeat)
 
-#### The Long Version ####
+#### Current Features ####
 
-Here you can place a longer description of the plugin and its features, separated into paragraphs.
+Limits the Heartbeat API in WordPress, which can slow down sites especially on shared web hosting servers (or get you in trouble with resource overage on certain hosting companies).
 
-    code snippet is indented with four spaces;
+By default it will disable the Heartbeat on frontend, while gently limiting the Heartbeat in Dashboard and Post Editor areas. We recommend not disabling it complete on these 2 areas whenever possible. If further restriction is needed, consider only disabling the Heartbeat on the Dashboard area before going into more aggressive disabling on the Post Edito area. This is because the Heartbeat API provides important data-saving functionality on the editor screens, making things like Auto-save drafts and post revisions possible, which can truly save you in certain circumstances (e.g. accidentally deleting a post, closing your browser window, power outages, lost or stolen computer, etc).
+
+Developer notes 1.0.0: I have added an inline javascript code to avoid WP changes in the interval via javascript (only on edit page, see last email) and it works well. Ironically, this patch is not necessary for Gutenberg systems (tested on the recently released WP 5.0 version), where the interval set on the server via WP filters is preserved in the client side. This plugin introduces a new helper class "context", that identifies several execution contexts (front, admin, cron, wp-cli, gutenberg page, etc.) and I am going to add to the plugin boilerplate files.
 
 #### Compatibility ####
 
-This plugin has been designed for use on LEMP (Nginx) web servers with PHP 7.0 and MySQL 5.7 to achieve best performance. All of our plugins are meant for single site WordPress installations only; for both performance and security reasons, we highly recommend against using WordPress Multisite for the vast majority of projects.
+This plugin has been designed for use on [SlickStack](https://slickstack.io) web servers with PHP 7.2 and MySQL 5.7 to achieve best performance. All of our plugins are meant for single site WordPress installations only; for both performance and usability reasons, we highly recommend avoiding WordPress Multisite for the vast majority of projects.
 
-Note: Any WordPress plugin may also be loaded as "Must-Use" by using the [Autoloader](https://github.com/littlebizzy/autoloader) script within the `mu-plugins` directory.
+Any of our WordPress plugins may also be loaded as "Must-Use" plugins by using our free [Autoloader](https://github.com/littlebizzy/autoloader) script in the `mu-plugins` directory.
 
 #### Defined Constants ####
 
-The following defined constants are supported by this plugin:
+    /* Plugin Meta */
+    define('DISABLE_NAG_NOTICES', true);
+    
+    /* Limit Heartbeat Functions */
+    define('LIMIT_HEARTBEAT_DISABLE_DASHBOARD', false);
+    define('LIMIT_HEARTBEAT_DISABLE_EDITOR', false);
+    define('LIMIT_HEARTBEAT_DISABLE_FRONTEND', true);
+    define('LIMIT_HEARTBEAT_INTERVAL_DASHBOARD', 600);
+    define('LIMIT_HEARTBEAT_INTERVAL_EDITOR', 30);
+    define('LIMIT_HEARTBEAT_INTERVAL_FRONTEND', 300);
 
-* `define('DISABLE_NAG_NOTICES', true);`
+#### Technical Details ####
 
-Why no quotes? Adding quotes evaluates the 'false' or "false" values as a string, and the boolean evaluation of any string returns true (except for empty strings).
-
-It is a little bit weird but PHP works this way because it does not require strong data typing. There are special operatos (the triple equality ===) to ensure the right data type, but adds complexity and it is used normally where you are not sure of the input variable data type.
-
-It is true that there are constants that expects both boolean and string values, but the important thing here is that the false value does not contain quotes, e.g.:
-
-define('DISABLE_CART_FRAGMENTS', true);
-define('DISABLE_CART_FRAGMENTS', false);
-define('DISABLE_CART_FRAGMENTS', '123,456,789');
-
-#### Plugin Features ####
-
-* Parent Plugin: [**SEO Genius**](https://www.littlebizzy.com/plugins/seo-genius)
-* Disable Nag Notices: [[Yes](https://codex.wordpress.org/Plugin_API/Action_Reference/admin_notices#Disable_Nag_Notices)]
+* Prefix: LMTHRT
+* Parent Plugin: [**Speed Demon**](https://wordpress.org/plugins/speed-demon-littlebizzy/)
+* Disable Nag Notices: [Yes](https://codex.wordpress.org/Plugin_API/Action_Reference/admin_notices#Disable_Nag_Notices)
 * Settings Page: No
 * PHP Namespaces: Yes
 * Object-Oriented Code: Yes
@@ -68,65 +65,42 @@ define('DISABLE_CART_FRAGMENTS', '123,456,789');
   * WP Options Table: Yes
   * Other Tables: No
   * Creates New Tables: No
-* Database Queries: Backend Only 
-  * Query Types: Options API
+  * Creates New WP Cron Jobs: No
+* Database Queries: Backend Only (Options API)
+* Must-Use Support: [Yes](https://github.com/littlebizzy/autoloader)
 * Multisite Support: No
 * Uninstalls Data: Yes
 
-#### Inspiration ####
-
-* [Some Name](https://wordpress.org/plugins/plugin-name/)
-* [Another Name](https://wordpress.org/plugins/plugin-name/)
-
-#### Special Thanks ####
-
-[Alex Georgiou](https://www.alexgeorgiou.gr), [Automattic](https://automattic.com), [Brad Touesnard](https://bradt.ca), [Daniel Auener](http://www.danielauener.com), [Delicious Brains](https://deliciousbrains.com), [Greg Rickaby](https://gregrickaby.com), [Matt Mullenweg](https://ma.tt), [Mika Epstein](https://halfelf.org), [Mike Garrett](https://mikengarrett.com), [Samuel Wood](http://ottopress.com), [Scott Reilly](http://coffee2code.com), [Jan Dembowski](https://profiles.wordpress.org/jdembowski), [Jeff Starr](https://perishablepress.com), [Jeff Chandler](https://jeffc.me), [Jeff Matson](https://jeffmatson.net), [Jeremy Wagner](https://jeremywagner.me), [John James Jacoby](https://jjj.blog), [Leland Fiegel](https://leland.me), [Luke Cavanagh](https://github.com/lukecav), [Mike Jolley](https://mikejolley.com), [Pau Iglesias](https://pauiglesias.com), [Paul Irish](https://www.paulirish.com), [Rahul Bansal](https://profiles.wordpress.org/rahul286), [Roots](https://roots.io), [rtCamp](https://rtcamp.com), [Ryan Hellyer](https://geek.hellyer.kiwi), [WP Chat](https://wpchat.com), [WP Tavern](https://wptavern.com)
-
 #### Disclaimer ####
 
-We released this plugin in response to our managed hosting clients asking for better access to their server, and our primary goal will remain supporting that purpose. Although we are 100% open to fielding requests from the WordPress community, we kindly ask that you keep the above-mentioned goals in mind... thanks!
-
-#### Keywords ####
-
-* Terms:
-
-* Phrases:
-
-* Plugins:
-
-### Philosophy ####
-
-Inspired by the likes of Unix and W. Edwards Deming, we believe in creating high quality software "components" that can stand on their own, or be integrated into other software. At a certain point, this approach has practical limits, which is why we are beginning to combine certain features into premium plugins. Still, we aim to reduce redundancy wherever possible, and present a unified UI in our premium plugins that in fact combines multiple small indepdent functions behind the scenes.
-https://www.johndcook.com/blog/2010/06/30/where-the-unix-philosophy-breaks-down/
+We released this plugin in response to our managed hosting clients asking for better access to their server, and our primary goal will remain supporting that purpose. Although we are 100% open to fielding requests from the WordPress community, we kindly ask that you keep these conditions in mind, and refrain from slandering, threatening, or harassing our team members in order to get a feature added, or to otherwise get "free" support. The only place you should be contacting us is in our free [**Facebook group**](https://www.facebook.com/groups/littlebizzy/) which has been setup for this purpose, or via GitHub if you are an experienced developer. Thank you!
 
 == Installation ==
 
-1. Upload to `/wp-content/plugins/some-name-littlebizzy`
+1. Upload to `/wp-content/plugins/limit-heartbeat-littlebizzy`
 2. Activate via WP Admin > Plugins
-3. Test plugin is working
+3. Test plugin is working:
+
+By default, the Heartbeat API is disabled on the frontend and slightly limited on Dashboard and Editor contexts. You can adjust these default settings using the provided defined constants.
 
 == Frequently Asked Questions ==
 
 = How can I change this plugin's settings? =
 
-There is a settings page where you can exclude certain types of query strings.
+There is no settings page for better performance, please use the defined constants to adjust settings.
 
 = I have a suggestion, how can I let you know? =
 
-Please avoid leaving negative reviews in order to get a feature implemented. Instead, we kindly ask that you post your feedback on the wordpress.org support forums by tagging this plugin in your post. If needed, you may also contact our homepage.
+Please avoid leaving negative reviews in order to get a feature implemented. Instead, use our Facebook group.
 
 == Changelog ==
 
-= 1.1.0 =
-* major changes/new features
-* tested with PHP 7.1
-* tested with PHP 7.2
-
-= 1.0.1 =
-* minor tweaks/patches
-
 = 1.0.0 =
 * initial release
+* PBP boilerplate 1.0.0
 * tested with PHP 7.0
+* tested with PHP 7.1
+* tested with PHP 7.2
+* tested with 5.6 (no fatal errors only)
 * uses PHP namespaces
 * object-oriented codebase
