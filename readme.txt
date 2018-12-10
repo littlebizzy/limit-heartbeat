@@ -1,4 +1,4 @@
-=== Limit Heartbeat ===
+=== Limit Heartbeat LittleBizzy ===
 
 Contributors: littlebizzy
 Donate link: https://www.patreon.com/littlebizzy
