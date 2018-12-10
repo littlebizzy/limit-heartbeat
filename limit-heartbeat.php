@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Limit Heartbeat
+Plugin Name: Limit Heartbeat LittleBizzy
 Plugin URI: https://www.littlebizzy.com/plugins/limit-heartbeat
 Description: Limits the Heartbeat API in WordPress to certain areas of the site (and a longer pulse interval) to reduce AJAX queries and improve resource usage.
 Version: 1.0.0
