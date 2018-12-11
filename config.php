@@ -5,6 +5,22 @@ return [
 
 
 	/**
+	 * Boot check settings
+	 */
+	'boot-check-php' => [
+
+		/**
+		 * PHP version
+		 * Variables support: %php_current_version% and %php_version_required%
+		 */
+		'version-required' 	=> '5.6.0',
+		'version-error' 	=> 'Sorry, your current PHP version (%php_current_version%) is not supported. This plugin requires at least PHP %php_version_required% version.',
+
+	], // End of boot-check
+
+
+
+	/**
 	 * Admin notices configuration
 	 */
 	'admin-notices' => [
