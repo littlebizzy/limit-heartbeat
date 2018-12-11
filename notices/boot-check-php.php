@@ -9,9 +9,10 @@ if (empty($_SERVER['REQUEST_URI']) || false === strpos($_SERVER['REQUEST_URI'], 
 // Check current plugin
 $ltbPlugin = explode('/', $_REQUEST['plugin']);
 $ltbParentDir = dirname(dirname(__FILE__));
-if ($ltbPlugin[0] != basename($ltbParentDir)) {
+if (empty($ltbPlugin[0]) || $ltbPlugin[0] != basename($ltbParentDir)) {
 	unset($ltbPlugin);
 	unset($ltbParentDir);
+	return;
 }
 
 // Unset unused
