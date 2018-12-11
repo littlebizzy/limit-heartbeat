@@ -26,7 +26,7 @@ unset($ltbParentDir);
 
 // Check config file
 if (empty($ltbConfig) || !is_array($ltbConfig) || empty($ltbConfig['boot-check-php']) ||
-	empty($ltbConfig['boot-check-php']['version-required']) || empty($ltbConfig['boot-check-php']['version-error'])) {
+	empty($ltbConfig['boot-check-php']['version-required']) || empty($ltbConfig['boot-check-php']['version-message'])) {
 	unset($ltbConfig);
 	return;
 }
@@ -44,7 +44,7 @@ error_log(print_r($_REQUEST, true));
 error_log('boot-check-php end '.time()); */
 
 // Prepare message
-$ltbMessage = $ltbConfig['boot-check-php']['version-error'];
+$ltbMessage = $ltbConfig['boot-check-php']['version-message'];
 $ltbMessage = str_replace('%php_current_version%', PHP_VERSION, $ltbMessage);
 $ltbMessage = str_replace('%php_version_required%', $ltbConfig['boot-check-php']['version-required'], $ltbMessage);
 

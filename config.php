@@ -10,11 +10,19 @@ return [
 	'boot-check-php' => [
 
 		/**
-		 * PHP version
-		 * Variables supported: %php_current_version% and %php_version_required%
+		 * PHP minimum version
 		 */
 		'version-required' 	=> '5.6.0',
-		'version-error' 	=> 'Sorry, your current PHP version (%php_current_version%) is not supported. This plugin requires at least PHP %php_version_required% version.',
+
+		/**
+		 * PHP error message
+		 *
+		 * Used to trigger a user error: It is limited to 1024 bytes in length. Any additional characters beyond 1024 bytes will be truncated
+		 * (from PHP documentation: http://php.net/manual/en/function.trigger-error.php)
+		 *
+		 * Supported variables: %php_current_version% and %php_version_required%
+		 */
+		'version-message'	=> 'Sorry, your current PHP version (%php_current_version%) is not supported. This plugin requires at least PHP %php_version_required% version.',
 
 	], // End of boot-check
 
