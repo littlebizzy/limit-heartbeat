@@ -10,7 +10,13 @@ return [
 	'boot-check-php' => [
 
 		/**
+		 * Enables the PHP validation
+		 */
+		'enabled' => true,
+
+		/**
 		 * PHP minimum version
+		 * Uses version_compare function: http://php.net/manual/en/function.version-compare.php
 		 */
 		'version-required' 	=> '5.6.0',
 

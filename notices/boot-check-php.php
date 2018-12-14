@@ -25,7 +25,7 @@ $ltbConfig = @include $ltbParentDir.'/config.php';
 unset($ltbParentDir);
 
 // Check config file
-if (empty($ltbConfig) || !is_array($ltbConfig) || empty($ltbConfig['boot-check-php']) ||
+if (empty($ltbConfig) || !is_array($ltbConfig) || empty($ltbConfig['boot-check-php']) || empty($ltbConfig['boot-check-php']['enabled']) ||
 	empty($ltbConfig['boot-check-php']['version-required']) || empty($ltbConfig['boot-check-php']['version-message'])) {
 	unset($ltbConfig);
 	return;
