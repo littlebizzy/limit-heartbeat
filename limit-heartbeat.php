@@ -27,7 +27,7 @@ if (!function_exists('add_action')) {
 // Plugin constants
 const FILE = __FILE__;
 const PREFIX = 'lmthrt';
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 
 // Boot check
 require_once dirname(FILE).'/notices/boot-check-php.php';
