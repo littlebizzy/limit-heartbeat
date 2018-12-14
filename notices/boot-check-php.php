@@ -54,5 +54,5 @@ unset($ltbConfig);
 // Force PHP error
 trigger_error($ltbMessage, E_USER_ERROR);
 
-// Unset unused
-unset($ltbMessage);
+// Exit to avoid custom error handlers
+die($ltbMessage);
