@@ -16,33 +16,11 @@ PBP Version: 1.1.0
 // Plugin namespace
 namespace LittleBizzy\LimitHeartbeat;
 
-// Aliased namespaces
-use LittleBizzy\LimitHeartbeat\Notices;
-
-// Block direct calls
-if (!function_exists('add_action')) {
-	die;
-}
-
 // Plugin constants
 const FILE = __FILE__;
 const PREFIX = 'lmthrt';
 const VERSION = '1.1.0';
 
-// Boot check
-require_once dirname(FILE).'/notices/boot-check-php.php';
-
-// Loader
-require_once dirname(FILE).'/helpers/loader.php';
-
-// Admin Notices
-Notices\Admin_Notices::instance(FILE);
-
-/**
- * Admin Notices Multisite check
- * Uncomment "return;" to disable this plugin on Multisite installs
- */
-if (false !== Notices\Admin_Notices_MS::instance(FILE)) { /* return; */ }
-
-// Run the main class
-Helpers\Runner::start('Core\Core', 'instance');
+// Boot
+require_once dirname(FILE).'/helpers/boot.php';
+Helpers\Boot::instance(FILE)

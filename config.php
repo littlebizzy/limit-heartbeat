@@ -5,7 +5,7 @@ return [
 
 
 	/**
-	 * Boot check settings
+	 * Boot check PHP configuration
 	 */
 	'boot-check-php' => [
 
@@ -18,7 +18,7 @@ return [
 		 * PHP minimum version
 		 * Uses version_compare function: http://php.net/manual/en/function.version-compare.php
 		 */
-		'version-required' 	=> '5.6.0',
+		'version-required' => '5.6.0',
 
 		/**
 		 * PHP error message
@@ -28,9 +28,9 @@ return [
 		 *
 		 * Supported variables: %php_current_version% and %php_version_required%
 		 */
-		'version-message'	=> 'Sorry, your current PHP version (%php_current_version%) is not supported. This plugin requires at least PHP %php_version_required% version.',
+		'version-message' => 'Sorry, your current PHP version (%php_current_version%) is not supported. This plugin requires at least PHP %php_version_required% version.',
 
-	], // End of boot-check
+	], // End of boot check PHP
 
 
 
@@ -38,6 +38,11 @@ return [
 	 * Admin notices configuration
 	 */
 	'admin-notices' => [
+
+		/**
+		 * Enables the Admin Notices display
+		 */
+		'enabled' => true,
 
 		/**
 		 * Rate Us
@@ -95,7 +100,20 @@ return [
 
 
 
+	/**
+	 * Admin notices configuration for WordPress MultiSite
+	 */
 	'admin-notices-ms' => [
+
+		/**
+		 * Enables the Admin Notices display
+		 */
+		'enabled' => true,
+
+		/**
+		 * Disables plugin execution on detected multisited installs
+		 */
+		'abort-on-multisite' => false,
 
 		/**
 		 * Custom message
