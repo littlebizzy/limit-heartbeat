@@ -35,12 +35,12 @@ return [
 
 
 	/**
-	 * Admin notices configuration
+	 * Admin Notices configuration
 	 */
 	'admin-notices' => [
 
 		/**
-		 * Enables the Admin Notices display
+		 * Enables the Admin Notices execution
 		 */
 		'enabled' => true,
 
@@ -101,12 +101,12 @@ return [
 
 
 	/**
-	 * Admin notices configuration for WordPress MultiSite
+	 * Admin Notices configuration for WordPress MultiSite
 	 */
 	'admin-notices-ms' => [
 
 		/**
-		 * Enables the Admin Notices display
+		 * Enables the Admin Notices execution
 		 */
 		'enabled' => true,
 

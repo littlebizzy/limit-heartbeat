@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * DO NOT MODIFY THE CLASS CODE!
+ * Use the config.php file at the plugin root level
+ */
+
 // Execute only in specific context
 if (empty($_SERVER['REQUEST_URI']) || false === strpos($_SERVER['REQUEST_URI'], '/wp-admin/plugins.php') ||
 	empty($_REQUEST['action']) || ('activate' != $_REQUEST['action'] && 'error_scrape' != $_REQUEST['action']) || empty($_REQUEST['plugin'])) {
