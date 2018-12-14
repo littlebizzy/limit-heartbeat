@@ -22,24 +22,24 @@ final class Boot {
 
 
 	/**
-	 * Single instance
+	 * Single class instance
 	 */
-	private $instance;
+	private static $instance;
 
 
 
 	/**
 	 * Create or retrieve instance
 	 */
-	final public static function instance($file) {
+	final public static function instance($file, $class = 'Core\Core', $method = 'instance') {
 
 		// Check instance
-		if (!isset($this->instance)) {
-			$this->instance = new self($file);
+		if (!isset(self::$instance)) {
+			self::$instance = new self($file, $class, $method);
 		}
 
 		// Done
-		return $this->instance;
+		return self::$instance;
 	}
 
 
@@ -54,7 +54,7 @@ final class Boot {
 	/**
 	 * Constructor
 	 */
-	private function __construct($file, 'Core\Core', 'instance') {
+	final private function __construct($file, $class, $method) {
 
 		// Plugin directory
 		$directory = dirname($file);
