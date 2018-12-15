@@ -13,7 +13,7 @@ class Context {
 
 
 
-	// Context
+	// Areas
 	private $ajax;
 	private $admin;
 	private $front;
