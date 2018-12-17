@@ -2,11 +2,10 @@
 
 Limits the Heartbeat API in WordPress to certain areas of the site (and a longer pulse interval) to reduce AJAX queries and improve resource usage.
 
-* [Plugin homepage](https://www.littlebizzy.com/plugins/limit-heartbeat)
-* [Download (WordPress.org)](https://wordpress.org/plugins/limit-heartbeat-littlebizzy/)
-* [Free Facebook group](https://www.facebook.com/groups/littlebizzy/)
+* [Plugin Homepage (LittleBizzy.com)](https://www.littlebizzy.com/plugins/limit-heartbeat)
+* [Free Facebook Group](https://www.facebook.com/groups/littlebizzy/)
 
-### Support issues
+### Support Issues
 
 *Please do not submit Pull Requests. Instead, kindly create a new Issue with relevant information if you are an experienced developer, otherwise post your comments in our free Facebook group.*
 
