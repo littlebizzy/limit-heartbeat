@@ -21,6 +21,11 @@ return [
 		'version-required' => '5.6.0',
 
 		/**
+		 * Aborts the plugin activation on WP sandbox generating an error output message
+		 */
+		'prevent-activation' => false,
+
+		/**
 		 * PHP error message
 		 *
 		 * Used to trigger a user error: It is limited to 1024 bytes in length. Any additional characters beyond 1024 bytes will be truncated
