@@ -2,7 +2,7 @@
 
 /**
  * DO NOT MODIFY THE CLASS CODE!
- * Just change the two [PluginNamespace] values below
+ * Just change the [PluginNamespace] value below
  * Define the settings in the ../config.php file
  */
 
@@ -85,7 +85,7 @@ final class Admin_Notices_PHP {
 	/**
 	 * WordPress and plugins loaded
 	 */
-	private function loaded() {
+	public function loaded() {
 
 		// Check the disable nag constant
 		if ((defined('DISABLE_NAG_NOTICES') && DISABLE_NAG_NOTICES)) {
@@ -122,7 +122,7 @@ final class Admin_Notices_PHP {
 
 
 	/**
-	 * Load configuration array
+	 * Load configuration array and check PHP version
 	 */
 	private function outdated() {
 
@@ -143,7 +143,7 @@ final class Admin_Notices_PHP {
 		$this->version_required = $config['boot-check-php']['version-required'];
 		$this->version_message 	= $config['boot-check-php']['version-message'];
 
-		// Done
+		// Outdated
 		return true;
 	}
 
