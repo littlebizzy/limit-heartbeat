@@ -9,6 +9,14 @@ Limits the Heartbeat API in WordPress to certain areas of the site (and a longer
 
     /* Plugin Meta */
     define('DISABLE_NAG_NOTICES', true);
+    
+    /* Limit Heartbeat Functions */
+    define('LIMIT_HEARTBEAT_DISABLE_DASHBOARD', false);
+    define('LIMIT_HEARTBEAT_DISABLE_EDITOR', false);
+    define('LIMIT_HEARTBEAT_DISABLE_FRONTEND', true);
+    define('LIMIT_HEARTBEAT_INTERVAL_DASHBOARD', 600);
+    define('LIMIT_HEARTBEAT_INTERVAL_EDITOR', 30);
+    define('LIMIT_HEARTBEAT_INTERVAL_FRONTEND', 300);
 
 ### Support Issues
 
