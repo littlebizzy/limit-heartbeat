@@ -4,7 +4,7 @@
     "license": "GPLv3",
     "homepage": "https://www.littlebizzy.com/plugins/limit-heartbeat",
     "description": "Limits the Heartbeat API in WordPress to certain areas of the site (and a longer pulse interval) to reduce AJAX queries and improve resource usage.",
-    "keywords": ["wordpress","plugin","limit","control","disable","heartbeat","api"],
+    "keywords": ["wordpress","plugin","heartbeat","heart beat","api","limit","control","disable","reduce"],
     "support": {
         "issues": "https://github.com/littlebizzy/limit-heartbeat/issues",
         "forum": "https://www.littlebizzy.com/members"
