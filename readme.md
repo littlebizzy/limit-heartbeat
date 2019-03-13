@@ -3,20 +3,23 @@
 Limits the Heartbeat API in WordPress to certain areas of the site (and a longer pulse interval) to reduce AJAX queries and improve resource usage.
 
 * [Plugin Homepage](https://www.littlebizzy.com/plugins/limit-heartbeat)
+* [Download Latest Version (ZIP)](https://github.com/littlebizzy/limit-heartbeat/archive/1.1.0.zip)
 * [**Become A LittleBizzy.com Member Today!**](https://www.littlebizzy.com/members)
 
 ### Defined Constants
 
     /* Plugin Meta */
-    define('DISABLE_NAG_NOTICES', true);
+    define('AUTOMATIC_UPDATE_PLUGINS', false); // default = false
+    define('DISABLE_NAG_NOTICES', true); // default = true
     
     /* Limit Heartbeat Functions */
-    define('LIMIT_HEARTBEAT_DISABLE_DASHBOARD', false);
-    define('LIMIT_HEARTBEAT_DISABLE_EDITOR', false);
-    define('LIMIT_HEARTBEAT_DISABLE_FRONTEND', true);
-    define('LIMIT_HEARTBEAT_INTERVAL_DASHBOARD', 600);
-    define('LIMIT_HEARTBEAT_INTERVAL_EDITOR', 30);
-    define('LIMIT_HEARTBEAT_INTERVAL_FRONTEND', 300);
+    define('LIMIT_HEARTBEAT', true); // default = true
+    define('LIMIT_HEARTBEAT_DISABLE_DASHBOARD', false); // default = false
+    define('LIMIT_HEARTBEAT_DISABLE_EDITOR', false); // default = false
+    define('LIMIT_HEARTBEAT_DISABLE_FRONTEND', true); // default = true
+    define('LIMIT_HEARTBEAT_INTERVAL_DASHBOARD', 600); // default = 600
+    define('LIMIT_HEARTBEAT_INTERVAL_EDITOR', 30); // default = 30
+    define('LIMIT_HEARTBEAT_INTERVAL_FRONTEND', 300); // default = 300
 
 ### Compatibility
 
